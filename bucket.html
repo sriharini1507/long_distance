@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>✅ Shared Bucket List</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem("coupleCode");
+      if (!saved) {
+        alert("Please login first.");
+        window.location.href = "index.html";
+      } else {
+        window.coupleCode = saved;
+        loadActiveList();
+        loadCompletedList();
+      }
+    });
+  </script>
+  <script type="module" src="bucket.js" defer></script>
+</head>
+<body>
+  <h1>✅ Shared Bucket List</h1>
+
+  <div class="section">
+    <input type="text" id="bucketInput" placeholder="Add a new goal..." />
+    <button onclick="addBucketItem()">Add</button>
+  </div>
+
+  <div class="section">
+    <h3>📋 Things To Do</h3>
+    <ul id="activeList"></ul>
+  </div>
+
+  <div class="section">
+    <h3>🏁 Completed</h3>
+    <ul id="completedList"></ul>
+  </div>
+
+  <a href="index.html">← Back to Dashboard</a>
+</body>
+</html>

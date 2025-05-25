@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>📅 Shared Calendar</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem("coupleCode");
+      if (!saved) {
+        alert("Please login first.");
+        window.location.href = "index.html";
+      } else {
+        window.coupleCode = saved;
+        loadCalendarEvents();
+      }
+    });
+  </script>
+
+  <script type="module" src="calendar.js" defer></script>
+</head>
+<body>
+  <h1>📅 Shared Calendar</h1>
+
+  <div class="section">
+    <input type="date" id="eventDate" />
+    <input type="text" id="eventName" placeholder="Event name (e.g., Anniversary)" />
+    <button onclick="addCalendarEvent()">Add</button>
+  </div>
+
+  <div class="section">
+    <h3>📆 Upcoming Events</h3>
+    <ul id="calendarList"></ul>
+  </div>
+
+  <a href="index.html">← Back to Dashboard</a>
+</body>
+</html>

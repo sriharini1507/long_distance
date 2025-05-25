@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>📅 Important Dates</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem("coupleCode");
+      if (!saved) {
+        alert("Please login first.");
+        window.location.href = "index.html";
+      } else {
+        window.coupleCode = saved;
+        loadDates();
+      }
+    });
+  </script>
+
+  <script type="module" src="dates.js" defer></script>
+</head>
+<body>
+  <h1>📅 Important Dates</h1>
+
+  <div class="section">
+    <input type="date" id="dateInput" />
+    <input type="text" id="eventInput" placeholder="Event description..." />
+    <button onclick="addDate()">Add</button>
+    <ul id="dateList"></ul>
+  </div>
+
+  <a href="index.html">← Back to Dashboard</a>
+</body>
+</html>

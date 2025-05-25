@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎮 Couple Quiz - Near & Dear</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+  // Autofill coupleCode from localStorage
+  window.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem("coupleCode");
+    if (saved) document.getElementById("coupleCode").value = saved;
+  });
+</script>
+
+  <script type="module" src="quiz.js" defer></script>
+</head>
+<body>
+  <h1>🎮 How Well Do You Know Me?</h1>
+  <input type="text" id="coupleCode" placeholder="Enter your couple code" />
+  <input type="text" id="yourName" placeholder="Your name" />
+  <button onclick="startQuiz()">Start Quiz</button>
+
+  <div id="quizSection" style="display:none;">
+    <form id="quizForm">
+      <div class="section">
+        <label>1. Favorite season?</label>
+        <input type="text" name="q1" />
+      </div>
+      <div class="section">
+        <label>2. Dream vacation spot?</label>
+        <input type="text" name="q2" />
+      </div>
+      <div class="section">
+        <label>3. Go-to comfort food?</label>
+        <input type="text" name="q3" />
+      </div>
+      <div class="section">
+        <label>4. Most-used emoji?</label>
+        <input type="text" name="q4" />
+      </div>
+      <div class="section">
+        <label>5. What reminds you of your partner?</label>
+        <input type="text" name="q5" />
+      </div>
+      <button type="submit">Submit Answers</button>
+    </form>
+    <p id="resultText" class="section"></p>
+  </div>
+
+  <a href="index.html">← Back to Dashboard</a>
+</body>
+</html>

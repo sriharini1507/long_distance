@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>📦 Memory Box</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem("coupleCode");
+      if (!saved) {
+        alert("Please login first.");
+        window.location.href = "index.html";
+      } else {
+        window.coupleCode = saved;
+        if (typeof loadMemories === "function") {
+          loadMemories();
+        }
+      }
+    });
+  </script>
+
+  <script type="module" src="memory.js" defer></script>
+</head>
+<body>
+  <h1>📦 Memory Box</h1>
+
+  <div class="section">
+    <textarea id="memoryInput" placeholder="Write down a special memory..." rows="4"></textarea>
+    <button onclick="saveMemory()">Save Memory</button>
+  </div>
+
+  <div class="section">
+    <h3>📝 Saved Memories</h3>
+    <ul id="memoryList"></ul>
+  </div>
+
+  <a href="index.html">← Back to Dashboard</a>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>📸 Photo Timeline</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="module" src="photos.js" defer></script>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem("coupleCode");
+      if (!saved) {
+        alert("Please login first.");
+        window.location.href = "index.html";
+      } else {
+        window.coupleCode = saved;
+        // Defer to wait for photos.js to be loaded
+        setTimeout(() => {
+          if (window.loadGallery) {
+            loadGallery();
+          }
+        }, 100);
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>📸 Our Photo Timeline</h1>
+
+  <div class="section">
+    <input type="file" id="photoFile" accept="image/*" />
+    <input type="text" id="caption" placeholder="Add a caption..." />
+    <button onclick="uploadPhoto()">Upload</button>
+  </div>
+
+  <div id="photoGallery" class="gallery"></div>
+
+  <a href="index.html">← Back to Dashboard</a>
+</body>
+</html>

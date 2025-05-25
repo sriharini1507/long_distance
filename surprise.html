@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎁 Surprise Generator - Near & Dear</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+  // Autofill coupleCode from localStorage
+  window.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem("coupleCode");
+    if (saved) document.getElementById("coupleCode").value = saved;
+  });
+</script>
+
+  <script type="module" src="surprise.js" defer></script>
+</head>
+<body>
+  <h1>🎁 Surprise Generator</h1>
+  <input type="text" id="coupleCode" placeholder="Enter your couple code" />
+  <button onclick="loadSurprises()">Start</button>
+
+  <div id="surpriseSection" style="display:none;">
+    <button onclick="generateSurprise()">Generate Surprise 💝</button>
+    <p id="surpriseText" class="section"></p>
+    <button onclick="saveSurprise()">Share with Partner 💬</button>
+    <p id="sharedSurprise" class="section"></p>
+  </div>
+
+  <a href="index.html">← Back to Dashboard</a>
+</body>
+</html>

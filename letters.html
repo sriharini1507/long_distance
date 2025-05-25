@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>💌 Love Letter Vault</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem("coupleCode");
+      if (saved) {
+        const input = document.getElementById("coupleCode");
+        if (input) input.value = saved;
+      }
+    });
+  </script>
+  <script type="module" src="letters.js" defer></script>
+</head>
+<body>
+  <h1>💌 Love Letter Vault</h1>
+  <div class="centered">
+    <input type="text" id="coupleCode" placeholder="Enter your couple code" />
+    <button onclick="loadLetters()">Load</button>
+  </div>
+
+  <div class="section" id="letterSection" style="display:none;">
+    <textarea id="letterInput" placeholder="Write your love letter here..." rows="5"></textarea>
+    <button onclick="saveLetter()">Save Letter 💖</button>
+    <h3>Saved Letters:</h3>
+    <ul id="letterList"></ul>
+  </div>
+
+  <div class="centered">
+    <a href="index.html">← Back to Dashboard</a>
+  </div>
+</body>
+</html>

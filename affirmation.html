@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🌈 Daily Affirmation - Near & Dear</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+  // Autofill coupleCode from localStorage
+  window.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem("coupleCode");
+    if (saved) document.getElementById("coupleCode").value = saved;
+  });
+</script>
+
+  <script type="module" src="affirmation.js" defer></script>
+</head>
+<body>
+  <h1>🌈 Daily Affirmation</h1>
+  <input type="text" id="coupleCode" placeholder="Enter your couple code" />
+  <button onclick="loadAffirmation()">Show</button>
+
+  <div id="affirmSection" style="display:none;">
+    <div class="section">
+      <p id="affirmText" style="font-size: 1.2rem;"></p>
+      <button onclick="refreshAffirmation()">🔄 Refresh</button>
+      <button onclick="shareAffirmation()">❤️ Share</button>
+    </div>
+    <p id="sharedAffirmation" class="section"></p>
+  </div>
+
+  <a href="index.html">← Back to Dashboard</a>
+</body>
+</html>
