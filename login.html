@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login to Near & Dear 💖</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>💖 Welcome to Near & Dear 💖</h1>
+
+  <div class="section">
+    <input type="text" id="codeInput" placeholder="Enter or generate couple code" />
+    <button onclick="saveCode()">Join</button>
+    <button onclick="generateCode()">Generate Code</button>
+  </div>
+
+  <script>
+    function generateCode() {
+      const code = Math.random().toString(36).substring(2, 8).toUpperCase();
+      document.getElementById("codeInput").value = code;
+    }
+
+    function saveCode() {
+      const code = document.getElementById("codeInput").value.trim();
+      if (!code) return alert("Please enter a couple code!");
+      localStorage.setItem("coupleCode", code);
+      window.location.href = "index.html"; // or dashboard
+    }
+  </script>
+</body>
+</html>
